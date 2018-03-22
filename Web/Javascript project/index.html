@@ -2,6 +2,7 @@
 <html>    
 	<head>
 		<script type="text/javascript" src="script.js"> </script>
+		
 	</head>
 	<body align="center">
 		<h1>
@@ -10,7 +11,7 @@
 		<p>
         	<img alt="" src="Images/start.png" id="imgClickAndChange" onclick="changeImage()"  /><!--style="height: 750px; width: 1000px" -->
 		</p>
-		<div id="timer">Time left: <span id="time">60</span> seconds!</div>
+		<div id="timer">Time left: <span id="time">5</span> seconds!</div>
 		<h1 id="gameover"></h1>
 		<table id="table" align="center" style="width:700px; height:500px; background-color:#637383; visibility:hidden">
   			<tr>
@@ -39,5 +40,22 @@
   			</tr>	
 		</table>
 		<h1 id="gameover"></h1>
+		<script
+  			src="https://code.jquery.com/jquery-3.3.1.js"
+  			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  			crossorigin="anonymous">
+  		</script>
+  		<script>
+  			$(document).ready(function(){
+    			$("#b1").click(function(){
+        			$("#dev").show().mouseenter(function(){
+        				$("#thanks").show();
+        			});
+    			});
+			});	
+  		</script>
+  	<button id="b1"> About developers </button> 
+  	<p id="thanks" style="display:none">Thanks for playing!</p>
+  	<p id="dev" style="display:none">Hemal Mamtora, Aditya Malani, Mihir Makwana</p>
 	</body>
 </html>

@@ -1,17 +1,13 @@
 function changeImage() {
     document.getElementById("imgClickAndChange").style.display = "none";
     document.getElementById("table").style.visibility = 'visible';
-    var timeInSeconds = 59,
+    var timeInSeconds = 4,
     display = document.querySelector('#time');
     startTimer(timeInSeconds, display);
     gameStarts();
     
 }
-	//function () {
-    //var timeInSeconds = 59,
-    //display = document.querySelector('#time');
-   // startTimer(timeInSeconds, display);
-///};
+	
 var stat;
 var star;
 function gameStarts(){
@@ -36,9 +32,9 @@ function startTimer(duration, display) {
         display.textContent =seconds;
 
         if (--timer < 0) {
-            document.getElementById("table").style.visibility = 'hidden';
+            document.getElementById("table").style.display = 'none';
             document.getElementById("gameover").innerHTML="GAME OVER GGWP";
-            document.getElementById("timer").style.visibility="hidden";
+            document.getElementById("timer").style.display="none";
         }
     }, 1000);
 }
