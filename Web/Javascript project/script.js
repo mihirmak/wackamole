@@ -5,14 +5,16 @@ function changeImage() {
     
 }
 
-var count=10;
+
+var star[];
 function gameStarts(){
-	while (count>0){
+    var i = 0;
+	while (i<count){
 		var myTable = document.getElementById('table');
-		var star = myTable.rows[randomGen()].cells[randomGen()];
-		star.querySelector('img').src="Images/mole2.png";
-		star.querySelector('img').setAttribute("onclick","myfun()");
-		count--;
+		star.push(myTable.rows[randomGen()].cells[randomGen()]);
+		star[i].querySelector('img').src="Images/mole2.png";
+		//star.querySelector('img').setAttribute("onclick","myfun()");
+		i++;
 	}
 }
 
@@ -36,5 +38,15 @@ function startTimer(duration, display) {
 }
 var score=0;
 function myfun(){
-    document.getElementById('counter').innerHTML=++score;
+   var i,j;
+   var k;
+   var myTable = document.getElementById('table');
+   for(i=0;i<count;i++){
+        for(j=0;j<count;j++){
+            k=myTable.rows[i].cells[j];
+                if (k.src === "file:///home/students/Hemal/wackamole/Web/Javascript%20project/Images/mole2.png"){
+                    document.getElementById('counter').innerHTML=++score;//this.querySelector('img').src;     
+            }
+        }
+   }
 };
