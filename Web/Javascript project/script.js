@@ -1,19 +1,25 @@
 function changeImage() {
     document.getElementById("imgClickAndChange").style.display = "none";
     document.getElementById("table").style.visibility = 'visible';
+    var timeInSeconds = 59,
+    display = document.querySelector('#time');
+    startTimer(timeInSeconds, display);
     gameStarts();
     
 }
-
-var count=10;
+	//function () {
+    //var timeInSeconds = 59,
+    //display = document.querySelector('#time');
+   // startTimer(timeInSeconds, display);
+///};
+var stat;
+var star;
 function gameStarts(){
-	while (count>0){
-		var myTable = document.getElementById('table');
-		var star = myTable.rows[randomGen()].cells[randomGen()];
-		star.querySelector('img').src="Images/mole2.png";
-		star.querySelector('img').setAttribute("onclick","myfun()");
-		count--;
-	}
+	var myTable = document.getElementById('table');
+	star=myTable.rows[randomGen()].cells[randomGen()];
+	star.querySelector('img').src="Images/mole2.png";
+	stat = 0;
+	star.querySelector('img').setAttribute("onclick","myfun()");
 }
 
 function randomGen(){
@@ -30,11 +36,18 @@ function startTimer(duration, display) {
         display.textContent =seconds;
 
         if (--timer < 0) {
-            timer = duration;
+            document.getElementById("table").style.visibility = 'hidden';
+            document.getElementById("gameover").innerHTML="GAME OVER GGWP";
+            document.getElementById("timer").style.visibility="hidden";
         }
     }, 1000);
 }
 var score=0;
 function myfun(){
-    document.getElementById('counter').innerHTML=++score;
+    if(stat == 0){
+        document.getElementById('counter').innerHTML=++score;     
+        star.querySelector('img').src="Images/mole1.png";
+        stat = 1;
+        
+    }         
 };
