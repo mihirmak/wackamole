@@ -1,7 +1,7 @@
 function changeImage() {
     document.getElementById("imgClickAndChange").style.display = "none";
     document.getElementById("table").style.visibility = 'visible';
-    var timeInSeconds = 4,
+    var timeInSeconds = 29,
     display = document.querySelector('#time');
     startTimer(timeInSeconds, display);
     gameStarts();
@@ -10,12 +10,25 @@ function changeImage() {
 	
 var stat;
 var star;
+
+
 function gameStarts(){
 	var myTable = document.getElementById('table');
 	star=myTable.rows[randomGen()].cells[randomGen()];
 	star.querySelector('img').src="Images/mole2.png";
 	stat = 0;
 	star.querySelector('img').setAttribute("onclick","myfun()");
+	newMole();
+}
+
+function newMole()
+{
+	setTimeout (function(){
+	star.querySelector('img').src="Images/Solid_gray.png";
+	star.querySelector('img').setAttribute("onclick","Images/Solid_gray.png)");
+	star = null;
+	gameStarts();
+	},1200);
 }
 
 function randomGen(){
@@ -40,6 +53,7 @@ function startTimer(duration, display) {
 }
 var score=0;
 function myfun(){
+	
     if(stat == 0){
         document.getElementById('counter').innerHTML=++score;     
         star.querySelector('img').src="Images/mole1.png";
